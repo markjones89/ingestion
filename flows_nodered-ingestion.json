@@ -19716,24 +19716,6 @@
         ]
     },
     {
-        "id": "980f62de8ad59ed6",
-        "type": "mqtt out",
-        "z": "b9b30579.10f308",
-        "name": "irrigation system",
-        "topic": "cmnd/4chpro/POWER3",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "bb448fe6.f03eb",
-        "x": 540,
-        "y": 360,
-        "wires": []
-    },
-    {
         "id": "3246cfbb.d0a11",
         "type": "mqtt in",
         "z": "ff8838d2.41d118",
