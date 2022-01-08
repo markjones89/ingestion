@@ -19619,8 +19619,8 @@
         "correl": "",
         "expiry": "",
         "broker": "bb448fe6.f03eb",
-        "x": 540,
-        "y": 280,
+        "x": 560,
+        "y": 300,
         "wires": []
     },
     {
@@ -19714,6 +19714,24 @@
                 "2d14432d.b78b5c"
             ]
         ]
+    },
+    {
+        "id": "cee9e09a968bf42a",
+        "type": "mqtt out",
+        "z": "b9b30579.10f308",
+        "name": "irrigation system",
+        "topic": "cmnd/4chpro/POWER3",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "bb448fe6.f03eb",
+        "x": 600,
+        "y": 240,
+        "wires": []
     },
     {
         "id": "3246cfbb.d0a11",
