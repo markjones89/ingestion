@@ -19716,19 +19716,6 @@
         ]
     },
     {
-        "id": "1b8ca590e013ae07",
-        "type": "mqtt out",
-        "z": "b9b30579.10f308",
-        "name": "Pool Overflow",
-        "topic": "cmnd/4chpro/POWER2",
-        "qos": "2",
-        "retain": "",
-        "broker": "bb448fe6.f03eb",
-        "x": 580,
-        "y": 180,
-        "wires": []
-    },
-    {
         "id": "3246cfbb.d0a11",
         "type": "mqtt in",
         "z": "ff8838d2.41d118",
