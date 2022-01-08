@@ -1,0 +1,12 @@
+{
+    "name": "nodered-ingestion",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows_nodered-ingestion.json",
+            "credentialsFile": "flows_nodered-ingestion_cred.json"
+        }
+    }
+}
