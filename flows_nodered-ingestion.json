@@ -47190,12 +47190,12 @@
         "type": "file",
         "z": "c7798c8d.f3cba",
         "name": "",
-        "filename": "",
+        "filename": "tokyo",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1140,
+        "x": 1130,
         "y": 1740,
         "wires": [
             [
