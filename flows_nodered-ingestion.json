@@ -37381,13 +37381,11 @@
         "name": "",
         "rules": [
             {
-                "t": "change",
+                "t": "move",
                 "p": "topic",
                 "pt": "msg",
-                "from": "sensor",
-                "fromt": "str",
-                "to": "netflix/tokyo/desk",
-                "tot": "str"
+                "to": "payload",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -37395,11 +37393,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 910,
+        "x": 900,
         "y": 1860,
         "wires": [
             [
-                "ea0e7e73.6b064"
+                "2a2354d8f3ac6978"
             ]
         ]
     },
@@ -47189,7 +47187,7 @@
         "type": "file",
         "z": "c7798c8d.f3cba",
         "name": "",
-        "filename": "tokyo",
+        "filename": "tokyo1",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "false",
