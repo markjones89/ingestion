@@ -39430,12 +39430,15 @@
         "randomFirst": "1",
         "randomLast": "5",
         "randomUnits": "seconds",
-        "drop": false,
+        "drop": true,
         "allowrate": false,
-        "outputs": 1,
+        "outputs": 2,
         "x": 4220,
         "y": 920,
         "wires": [
+            [
+                "b5056b64.d13e28"
+            ],
             [
                 "b5056b64.d13e28"
             ]
