@@ -39456,7 +39456,7 @@
         "timeout": "5",
         "timeoutUnits": "seconds",
         "rate": "250",
-        "nbRateUnits": "3",
+        "nbRateUnits": "1",
         "rateUnits": "second",
         "randomFirst": "1",
         "randomLast": "5",
@@ -68982,7 +68982,7 @@
         "endTime": "03:00",
         "startOffset": 0,
         "endOffset": 0,
-        "x": 730,
+        "x": 690,
         "y": 100,
         "wires": [
             [
