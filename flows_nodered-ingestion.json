@@ -2415,7 +2415,7 @@
         "id": "72a8eb61.c1b734",
         "type": "mqtt-broker",
         "name": "senzo mqtt",
-        "broker": "mqtt.senzodata.com1",
+        "broker": "mqtt.senzodata.com",
         "port": "8884",
         "tls": "583031ba.5771e",
         "clientid": "",
