@@ -72881,8 +72881,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 590,
-        "y": 60,
+        "x": 710,
+        "y": 160,
         "wires": []
     },
     {
@@ -72903,21 +72903,26 @@
         "id": "d2577a8315b47218",
         "type": "function",
         "z": "ea5cac99fd2f5844",
-        "name": "",
+        "name": "Mac to Lowercase",
         "func": "msg.mac = msg.mac2.toLowerCase()\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 440,
-        "y": 340,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 60,
         "wires": [
-            []
+            [
+                "2897614f322abebb"
+            ]
         ]
     },
     {
         "id": "03cab88b94cbc96f",
         "type": "function",
         "z": "ea5cac99fd2f5844",
-        "name": "",
+        "name": "Sort data",
         "func": "var str1 = msg.topic;\nvar str2 = str1.slice(0, -2) + '00';\nmsg.mac2 = str2;\nvar str = msg.payload;\nvar result = str.split(','); \nmsg.roomsize = result;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -72928,7 +72933,7 @@
         "y": 60,
         "wires": [
             [
-                "2897614f322abebb"
+                "d2577a8315b47218"
             ]
         ]
     },
