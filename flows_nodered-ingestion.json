@@ -72857,13 +72857,13 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "sensor/C4:DD:57:8E:8D:B0/people/count",
-        "payload": "0,0",
+        "payload": "0,5",
         "payloadType": "str",
-        "x": 180,
-        "y": 220,
+        "x": 150,
+        "y": 60,
         "wires": [
             [
-                "2897614f322abebb"
+                "03cab88b94cbc96f"
             ]
         ],
         "info": "\nsensor/C4:DD:57:8E:8D:B0/people/count : msg.payload : string[3]\n\"0,0\"\n"
@@ -72880,8 +72880,52 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 400,
-        "y": 220,
+        "x": 590,
+        "y": 60,
         "wires": []
+    },
+    {
+        "id": "9c77f5843c05fb90",
+        "type": "function",
+        "z": "ea5cac99fd2f5844",
+        "name": "sorting direct send",
+        "func": "msg.payload = [\n    {\n        mac : msg.mac,\n        peoplemac : msg.mac,\n        distinct : msg.payload,\n        \n    }];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 490,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d2577a8315b47218",
+        "type": "function",
+        "z": "ea5cac99fd2f5844",
+        "name": "",
+        "func": "msg.mac = msg.mac2.toLowerCase()\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "03cab88b94cbc96f",
+        "type": "function",
+        "z": "ea5cac99fd2f5844",
+        "name": "",
+        "func": "var str1 = msg.topic;\nvar str2 = str1.slice(0, -2) + '00';\nmsg.mac2 = str2;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 60,
+        "wires": [
+            [
+                "2897614f322abebb"
+            ]
+        ]
     }
 ]
