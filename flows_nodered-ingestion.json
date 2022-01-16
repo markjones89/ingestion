@@ -73182,14 +73182,14 @@
         "type": "function",
         "z": "ea5cac99fd2f5844",
         "name": "sort for senzo",
-        "func": "msg.payload = [\n    {\n        mac : (msg.mac2 + msg.macend),\n        count : msg.roomsize[0],\n        roomsize : Number(msg.roomsize[1])\n       }];\nreturn msg;",
+        "func": "msg.payload = [\n    {\n        mac : (msg.mac2 + msg.macend),\n        count : msg.roomsize[0],\n        roomsize : Number(msg.roomsize[1]),\n        topic : (\"sensor/\"+ msg.mac +\"/data\")\n       }];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 820,
-        "y": 180,
+        "x": 840,
+        "y": 100,
         "wires": [
             [
                 "18f0acac29fe87a5"
