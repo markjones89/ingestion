@@ -73022,8 +73022,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1030,
-        "y": 160,
+        "x": 1130,
+        "y": 140,
         "wires": []
     },
     {
@@ -73181,8 +73181,8 @@
         "id": "c34e6a4ec213de44",
         "type": "function",
         "z": "ea5cac99fd2f5844",
-        "name": "sort for senzo",
-        "func": "msg.payload = [\n    {\n        mac : (msg.mac2 + msg.macend),\n        count : msg.roomsize[0],\n        roomsize : Number(msg.roomsize[1]),\n        topic : (\"sensor/\"+ msg.mac +\"/data\")\n       }];\nreturn msg;",
+        "name": "sort for senzo 1",
+        "func": "msg.payload = [\n    {\n        mac : (msg.mac2 + msg.macend),\n        count : msg.roomsize[0],\n        roomsize : Number(msg.roomsize[1])\n       }];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -73192,7 +73192,7 @@
         "y": 100,
         "wires": [
             [
-                "18f0acac29fe87a5"
+                "256435428313309b"
             ]
         ]
     },
@@ -73339,6 +73339,25 @@
             [],
             [
                 "f3627d7817ebf3c6"
+            ]
+        ]
+    },
+    {
+        "id": "256435428313309b",
+        "type": "function",
+        "z": "ea5cac99fd2f5844",
+        "name": "senzo topic",
+        "func": "msg.topic = [\n    {\n        topic : (\"sensor/\"+ msg.mac +\"/data\")\n       }];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 100,
+        "wires": [
+            [
+                "18f0acac29fe87a5"
             ]
         ]
     }
