@@ -73347,7 +73347,7 @@
         "type": "function",
         "z": "ea5cac99fd2f5844",
         "name": "senzo topic",
-        "func": "msg.topic = [\n    {\n        topic : (\"sensor/\"+ msg.mac +\"/data\")\n       }];\nreturn msg;",
+        "func": "msg.topic = [\n    {\n        topic : (\"sensor/\"+ msg.payload.mac +\"/data\")\n       }];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
