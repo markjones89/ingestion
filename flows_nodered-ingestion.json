@@ -30257,7 +30257,8 @@
         "wires": [
             [],
             [
-                "74de121c36787041"
+                "74de121c36787041",
+                "0e59a4b93efac057"
             ],
             [],
             [],
@@ -47316,6 +47317,22 @@
                 "b5056b64.d13e28"
             ]
         ]
+    },
+    {
+        "id": "0e59a4b93efac057",
+        "type": "debug",
+        "z": "c7798c8d.f3cba",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2240,
+        "y": 1300,
+        "wires": []
     },
     {
         "id": "e99291df.8b2d7",
