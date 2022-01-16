@@ -72918,7 +72918,7 @@
         "type": "function",
         "z": "ea5cac99fd2f5844",
         "name": "",
-        "func": "var str1 = msg.topic;\nvar str2 = str1.slice(0, -2) + '00';\nmsg.mac2 = str2;\nvar str = msg.payload\nvar result = str.split(','); \n\nreturn msg;",
+        "func": "var str1 = msg.topic;\nvar str2 = str1.slice(0, -2) + '00';\nmsg.mac2 = str2;\nvar str = msg.payload;\nvar result = str.split(','); \nmsg.roomsize = result;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
