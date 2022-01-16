@@ -73018,7 +73018,7 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
+        "complete": "macend",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
