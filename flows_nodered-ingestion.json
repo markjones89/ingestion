@@ -72868,8 +72868,8 @@
         "topic": "sensor/C4:DD:57:8E:8D:B0/people/count",
         "payload": "66,5",
         "payloadType": "str",
-        "x": 150,
-        "y": 60,
+        "x": 370,
+        "y": 160,
         "wires": [
             [
                 "fef32c29d6271f67"
@@ -73005,8 +73005,7 @@
         "y": 220,
         "wires": [
             [
-                "18f0acac29fe87a5",
-                "d2341ddccf118d1b"
+                "070bf83181374334"
             ]
         ]
     },
@@ -73067,8 +73066,22 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 220,
+        "x": 890,
+        "y": 280,
+        "wires": [
+            [
+                "18f0acac29fe87a5"
+            ]
+        ]
+    },
+    {
+        "id": "070bf83181374334",
+        "type": "splitter",
+        "z": "ea5cac99fd2f5844",
+        "name": "",
+        "property": "value",
+        "x": 630,
+        "y": 240,
         "wires": [
             [
                 "18f0acac29fe87a5"
