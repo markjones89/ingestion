@@ -72866,7 +72866,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "sensor/C4:DD:57:8E:8D:B0/people/count",
-        "payload": "66,5",
+        "payload": "66,12",
         "payloadType": "str",
         "x": 370,
         "y": 160,
