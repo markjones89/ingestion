@@ -72863,7 +72863,7 @@
         "y": 60,
         "wires": [
             [
-                "03cab88b94cbc96f"
+                "fef32c29d6271f67"
             ]
         ],
         "info": "\nsensor/C4:DD:57:8E:8D:B0/people/count : msg.payload : string[3]\n\"0,0\"\n"
@@ -72881,7 +72881,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 570,
+        "x": 590,
         "y": 60,
         "wires": []
     },
@@ -72921,11 +72921,49 @@
         "func": "var str1 = msg.topic;\nvar str2 = str1.slice(0, -2) + '00';\nmsg.mac2 = str2;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 300,
+        "x": 460,
         "y": 60,
         "wires": [
             [
                 "2897614f322abebb"
+            ]
+        ]
+    },
+    {
+        "id": "fef32c29d6271f67",
+        "type": "change",
+        "z": "ea5cac99fd2f5844",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "topic",
+                "pt": "msg",
+                "from": "sensor/",
+                "fromt": "str",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "topic",
+                "pt": "msg",
+                "from": "/people/count",
+                "fromt": "str",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 60,
+        "wires": [
+            [
+                "03cab88b94cbc96f"
             ]
         ]
     }
