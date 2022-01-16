@@ -72866,7 +72866,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "sensor/C4:DD:57:8E:8D:B0/people/count",
-        "payload": "66,5",
+        "payload": "66,1",
         "payloadType": "str",
         "x": 150,
         "y": 60,
@@ -72909,7 +72909,8 @@
         "y": 60,
         "wires": [
             [
-                "2897614f322abebb"
+                "2897614f322abebb",
+                "f5e6d17cff038774"
             ]
         ]
     },
@@ -72994,7 +72995,7 @@
         "type": "function",
         "z": "ea5cac99fd2f5844",
         "name": "",
-        "func": "vmac = msg.payload[0].peoplemac\nroom = msg.payload[0].roomsize\nvar roomsize;\n\nif (roomsize == 1) {\n    \n    }\n\nmsg.payload.forEach(item => {\n    \n    if (item.in_mac === \"f123\"){\n        person = \"tom\";\n        \n    } else if (item.in_mac === \"abc\"){\n        person = \"james\";\n    }\n   newmsg = {employee: person, Date:new Date().toLocaleDateString(), Time: new Date().toLocaleTimeString()};\n\n    node.send({payload: newmsg});\n});\nnode.done();\nreturn;",
+        "func": "vmac = msg.payload[0].peoplemac\nroom = msg.payload[0].roomsize\n\nif (roomsize == 1) {\n    msg.vmac + \"00\"\n    }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -73003,7 +73004,26 @@
         "x": 710,
         "y": 200,
         "wires": [
-            []
+            [
+                "18f0acac29fe87a5"
+            ]
         ]
+    },
+    {
+        "id": "18f0acac29fe87a5",
+        "type": "debug",
+        "z": "ea5cac99fd2f5844",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "vmac",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 200,
+        "wires": []
     }
 ]
