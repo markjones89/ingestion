@@ -73210,7 +73210,7 @@
         "template": "{\"dev_id\":\"{{mac}}\",\"data\":[{\"dist\":[9132,9135,9135,9137,9136,9138,9140,9139,9136,9135,9139,9136,9137,9137,9138,9135,9138,9137,9135,9136,9138,9136,9136,9134]},{\"temp\":\"intuitive\"},{\"hum\":0},{\"vin\":409}],\"time\":{{time}},\"transmit_time\":{{time}},\"version\":\"2.0\",\"prox_count\":5,\"sample_interval\":5000}",
         "output": "json",
         "x": 700,
-        "y": 140,
+        "y": 160,
         "wires": [
             []
         ]
@@ -73257,7 +73257,8 @@
         "y": 160,
         "wires": [
             [
-                "8716b3588cf59cb7"
+                "8716b3588cf59cb7",
+                "d1a8ec33bf9aacbb"
             ]
         ]
     },
@@ -73363,5 +73364,22 @@
                 "ebc9c15cd3d7515f"
             ]
         ]
+    },
+    {
+        "id": "d1a8ec33bf9aacbb",
+        "type": "debug",
+        "z": "ea5cac99fd2f5844",
+        "name": "count occupied",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 200,
+        "wires": []
     }
 ]
