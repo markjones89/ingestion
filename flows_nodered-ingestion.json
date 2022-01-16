@@ -3577,6 +3577,15 @@
         "sessionExpiry": ""
     },
     {
+        "id": "f9b17512.31f4e8",
+        "type": "MySQLdatabase",
+        "name": "db",
+        "host": "194.81.104.22",
+        "port": "3306",
+        "db": "db15400686",
+        "tz": ""
+    },
+    {
         "id": "906ab9de.e4e718",
         "type": "switch",
         "z": "8d9fec2a.10a11",
@@ -72881,7 +72890,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1050,
+        "x": 1010,
         "y": 60,
         "wires": []
     },
@@ -72890,7 +72899,7 @@
         "type": "function",
         "z": "ea5cac99fd2f5844",
         "name": "sorting direct send",
-        "func": "msg.payload = [\n    {\n        mac : msg.mac,\n        peoplemac : msg.mac,\n        distinct : msg.roomsize[0],\n        roomsize : msg.roomsize[1]\n        \n    }];\nreturn msg;",
+        "func": "msg.payload = [\n    {\n        mac : msg.mac,\n        peoplemac : msg.mac,\n        count : msg.roomsize[0],\n        roomsize : msg.roomsize[1]\n        \n    }];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -72928,7 +72937,7 @@
         "type": "function",
         "z": "ea5cac99fd2f5844",
         "name": "Sort data",
-        "func": "var str1 = msg.topic;\nvar str2 = str1.slice(0, -2) + '00';\nmsg.mac2 = str2;\nvar str = msg.payload;\nvar result = str.split(','); \nmsg.roomsize = result;\n\nreturn msg;",
+        "func": "var str1 = msg.topic;\n//var str2 = str1.slice(0, -2) + '00';\nvar str2 = str1.slice(0, -2);\nmsg.mac2 = str2;\nvar str = msg.payload;\nvar result = str.split(','); \nmsg.roomsize = result;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -72978,6 +72987,23 @@
             [
                 "03cab88b94cbc96f"
             ]
+        ]
+    },
+    {
+        "id": "f5e6d17cff038774",
+        "type": "function",
+        "z": "ea5cac99fd2f5844",
+        "name": "",
+        "func": "\nvar roomsize;\n\nif (roomsize == 1) {\n    \n    }\n\nmsg.payload.forEach(item => {\n    \n    if (item.in_mac === \"f123\"){\n        person = \"tom\";\n        \n    } else if (item.in_mac === \"abc\"){\n        person = \"james\";\n    }\n   newmsg = {employee: person, Date:new Date().toLocaleDateString(), Time: new Date().toLocaleTimeString()};\n\n    node.send({payload: newmsg});\n});\nnode.done();\nreturn;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 200,
+        "wires": [
+            []
         ]
     }
 ]
