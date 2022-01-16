@@ -73014,7 +73014,7 @@
         "type": "debug",
         "z": "ea5cac99fd2f5844",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -73355,7 +73355,8 @@
         "y": 100,
         "wires": [
             [
-                "18f0acac29fe87a5"
+                "18f0acac29fe87a5",
+                "8716b3588cf59cb7"
             ]
         ]
     },
@@ -73364,7 +73365,7 @@
         "type": "switch",
         "z": "ea5cac99fd2f5844",
         "name": "",
-        "property": "macend",
+        "property": "roomsize[1]",
         "propertyType": "msg",
         "rules": [
             {
