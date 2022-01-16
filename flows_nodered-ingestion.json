@@ -73032,11 +73032,11 @@
         "z": "ea5cac99fd2f5844",
         "name": "",
         "property": "value",
-        "x": 310,
-        "y": 100,
+        "x": 190,
+        "y": 180,
         "wires": [
             [
-                "7403504acc085016"
+                "da2d3c7f913c25ec"
             ]
         ]
     },
@@ -73472,5 +73472,24 @@
         "x": 1370,
         "y": 240,
         "wires": []
+    },
+    {
+        "id": "da2d3c7f913c25ec",
+        "type": "function",
+        "z": "ea5cac99fd2f5844",
+        "name": "",
+        "func": "msg.macid = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "7403504acc085016"
+            ]
+        ]
     }
 ]
