@@ -72995,14 +72995,14 @@
         "type": "function",
         "z": "ea5cac99fd2f5844",
         "name": "",
-        "func": "var room = msg.payload[0].roomsize\nfunction range(start, end) {\n  return Array(end - start + 1).fill().map((_, idx) => start + idx)\n}\nvar result = range(00, room); // [9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\nconsole.log(result);\nmsg.value = result\nreturn msg;\n",
+        "func": "var room = msg.payload[0].roomsize\nfunction range(start, end) {\n  return Array(end - start + 1).fill().map((_, idx) => start + idx)\n}\nvar result = range(0, room); // [9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\nconsole.log(result);\nmsg.value = result\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 120,
+        "x": 420,
+        "y": 220,
         "wires": [
             [
                 "18f0acac29fe87a5",
