@@ -73005,7 +73005,8 @@
         "y": 120,
         "wires": [
             [
-                "18f0acac29fe87a5"
+                "18f0acac29fe87a5",
+                "d2341ddccf118d1b"
             ]
         ]
     },
@@ -73052,6 +73053,25 @@
         "wires": [
             [
                 "f5e6d17cff038774"
+            ]
+        ]
+    },
+    {
+        "id": "d2341ddccf118d1b",
+        "type": "function",
+        "z": "ea5cac99fd2f5844",
+        "name": "add double diget",
+        "func": "function zeroPad(numberStr) {\n  return numberStr.padStart(2, \"0\");\n}\n\nvar numbers = msg.value;\n\nnumbers.forEach(\n  function(num) {\n    var numString = num.toString();\n    \n    var paddedNum = zeroPad(numString);\n\n    console.log(paddedNum);\n  }\n);",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 220,
+        "wires": [
+            [
+                "18f0acac29fe87a5"
             ]
         ]
     }
