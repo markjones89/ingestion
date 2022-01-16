@@ -73188,7 +73188,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "{\"dev_id\":\"{{mac}}\",\"data\":[{\"dist\":[9132,9135,9135,9137,9136,9138,9140,9139,9136,9135,9139,9136,9137,9137,9138,9135,9138,9090,9100,9110,9120,9130,9140,9150]},{\"temp\":\"intuitive\"},{\"hum\":0},{\"vin\":409}],\"time\":{{payload}},\"transmit_time\":{{payload}},\"version\":\"2.0\",\"prox_count\":5,\"sample_interval\":5000}",
+        "template": "{\"dev_id\":\"{{mac}}\",\"data\":[{\"dist\":[9132,9135,9135,9137,9136,9138,9140,9139,9136,9135,9139,9136,9137,9137,9138,9135,9138,9090,9100,9110,9120,9130,9140,9150]},{\"temp\":\"intuitive\"},{\"hum\":0},{\"vin\":409}],\"time\":{{time}},\"transmit_time\":{{time}},\"version\":\"2.0\",\"prox_count\":5,\"sample_interval\":5000}",
         "output": "json",
         "x": 690,
         "y": 200,
