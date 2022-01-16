@@ -72995,7 +72995,7 @@
         "type": "function",
         "z": "ea5cac99fd2f5844",
         "name": "",
-        "func": "vmac = msg.payload[0].peoplemac\nroom = msg.payload[0].roomsize\n\nif (room == 1) {\n    msg.vmac + \"00\"\n    }\nreturn msg;",
+        "func": "\nvar vmac = msg.payload[0].peoplemac;\nvar room = msg.payload[0].roomsize;\nconst points = new Array(room); \n\nreturn;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
