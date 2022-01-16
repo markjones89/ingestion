@@ -126,6 +126,14 @@
         "info": ""
     },
     {
+        "id": "ea5cac99fd2f5844",
+        "type": "tab",
+        "label": "Meeting room sensor mac",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "8d9fec2a.10a11",
         "type": "subflow",
         "name": "Netflix 25 seat",
@@ -72829,5 +72837,51 @@
                 "ddc88537cd57499e"
             ]
         ]
+    },
+    {
+        "id": "1dd5ee875000582a",
+        "type": "inject",
+        "z": "ea5cac99fd2f5844",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "sensor/C4:DD:57:8E:8D:B0/people/count",
+        "payload": "0,0",
+        "payloadType": "str",
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "2897614f322abebb"
+            ]
+        ],
+        "info": "\nsensor/C4:DD:57:8E:8D:B0/people/count : msg.payload : string[3]\n\"0,0\"\n"
+    },
+    {
+        "id": "2897614f322abebb",
+        "type": "debug",
+        "z": "ea5cac99fd2f5844",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 220,
+        "wires": []
     }
 ]
