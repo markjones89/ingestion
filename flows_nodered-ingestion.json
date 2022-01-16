@@ -73370,13 +73370,11 @@
         "rules": [
             {
                 "t": "lte",
-                "v": "roomsize[1]",
+                "v": "macid",
                 "vt": "msg"
             },
             {
-                "t": "gte",
-                "v": "roomsize[1]",
-                "vt": "msg"
+                "t": "else"
             }
         ],
         "checkall": "true",
