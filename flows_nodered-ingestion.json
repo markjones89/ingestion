@@ -2028,6 +2028,45 @@
         "color": "#DDAA99"
     },
     {
+        "id": "2a50069484e4c0ad",
+        "type": "subflow",
+        "name": "Subflow 14",
+        "info": "",
+        "in": [
+            {
+                "x": 200,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "fef32c29d6271f67"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 920,
+                "y": 180,
+                "wires": [
+                    {
+                        "id": "0e696bcb9381a109",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 900,
+                "y": 220,
+                "wires": [
+                    {
+                        "id": "b76e8af6498da302",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": "12d40537.15b4eb",
         "type": "tls-config",
         "name": "",
@@ -19411,6 +19450,457 @@
             ],
             [
                 "834ff42b1d83a7d9"
+            ]
+        ]
+    },
+    {
+        "id": "b76e8af6498da302",
+        "type": "template",
+        "z": "2a50069484e4c0ad",
+        "name": "MOVEMENT",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"dev_id\":\"{{mac}}\",\"data\":[{\"dist\":[9132,9135,9135,9137,9136,9138,9140,9139,9136,9135,9139,9136,9137,9137,9138,9135,9138,9090,9100,9110,9120,9130,9140,9150]},{\"temp\":\"intuitive\"},{\"hum\":0},{\"vin\":409}],\"time\":{{time}},\"transmit_time\":{{time}},\"version\":\"2.0\",\"prox_count\":5,\"sample_interval\":5000}",
+        "output": "json",
+        "x": 750,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8716b3588cf59cb7",
+        "type": "switch",
+        "z": "2a50069484e4c0ad",
+        "name": "",
+        "property": "macid",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "payload_unsplit[0].count",
+                "vt": "msg"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 180,
+        "wires": [
+            [
+                "0e696bcb9381a109"
+            ],
+            [
+                "b76e8af6498da302"
+            ]
+        ]
+    },
+    {
+        "id": "ebc9c15cd3d7515f",
+        "type": "change",
+        "z": "2a50069484e4c0ad",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "time",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 180,
+        "wires": [
+            [
+                "8716b3588cf59cb7"
+            ]
+        ]
+    },
+    {
+        "id": "0e696bcb9381a109",
+        "type": "template",
+        "z": "2a50069484e4c0ad",
+        "name": "NO MOVEMENT",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"dev_id\":\"{{mac}}\",\"data\":[{\"dist\":[9132,9135,9135,9137,9136,9138,9140,9139,9136,9135,9139,9136,9137,9137,9138,9135,9138,9137,9135,9136,9138,9136,9136,9134]},{\"temp\":\"intuitive\"},{\"hum\":0},{\"vin\":409}],\"time\":{{time}},\"transmit_time\":{{time}},\"version\":\"2.0\",\"prox_count\":5,\"sample_interval\":5000}",
+        "output": "json",
+        "x": 760,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "851347c81e7d01a2",
+        "type": "function",
+        "z": "2a50069484e4c0ad",
+        "name": "",
+        "func": "msg.mac = msg.payload[0].mac\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "ebc9c15cd3d7515f"
+            ]
+        ]
+    },
+    {
+        "id": "256435428313309b",
+        "type": "function",
+        "z": "2a50069484e4c0ad",
+        "name": "senzo topic",
+        "func": "msg.topic = (\"sensor/\"+ msg.payload[0].mac +\"/data\")\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1210,
+        "y": 120,
+        "wires": [
+            [
+                "851347c81e7d01a2"
+            ]
+        ]
+    },
+    {
+        "id": "c34e6a4ec213de44",
+        "type": "function",
+        "z": "2a50069484e4c0ad",
+        "name": "sort for senzo 1",
+        "func": "msg.payload = [\n    {\n        mac : (msg.mac2 + msg.macend),\n        count : msg.roomsize[0],\n        roomsize : Number(msg.roomsize[1])\n       }];\n       msg.time = 12344;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 120,
+        "wires": [
+            [
+                "256435428313309b"
+            ]
+        ]
+    },
+    {
+        "id": "1c8aeb6d290ba799",
+        "type": "change",
+        "z": "2a50069484e4c0ad",
+        "name": "0 to 9 00 to 09",
+        "rules": [
+            {
+                "t": "change",
+                "p": "macend",
+                "pt": "msg",
+                "from": "0",
+                "fromt": "num",
+                "to": "00",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "macend",
+                "pt": "msg",
+                "from": "1",
+                "fromt": "num",
+                "to": "01",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "macend",
+                "pt": "msg",
+                "from": "2",
+                "fromt": "num",
+                "to": "02",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "macend",
+                "pt": "msg",
+                "from": "3",
+                "fromt": "num",
+                "to": "03",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "macend",
+                "pt": "msg",
+                "from": "4",
+                "fromt": "num",
+                "to": "04",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "macend",
+                "pt": "msg",
+                "from": "5",
+                "fromt": "num",
+                "to": "05",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "macend",
+                "pt": "msg",
+                "from": "6",
+                "fromt": "num",
+                "to": "06",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "macend",
+                "pt": "msg",
+                "from": "7",
+                "fromt": "num",
+                "to": "07",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "macend",
+                "pt": "msg",
+                "from": "8",
+                "fromt": "num",
+                "to": "08",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "macend",
+                "pt": "msg",
+                "from": "9",
+                "fromt": "num",
+                "to": "09",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 120,
+        "wires": [
+            [
+                "c34e6a4ec213de44"
+            ]
+        ]
+    },
+    {
+        "id": "7403504acc085016",
+        "type": "change",
+        "z": "2a50069484e4c0ad",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "macend",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 120,
+        "wires": [
+            [
+                "1c8aeb6d290ba799"
+            ]
+        ]
+    },
+    {
+        "id": "da2d3c7f913c25ec",
+        "type": "function",
+        "z": "2a50069484e4c0ad",
+        "name": "",
+        "func": "msg.macid = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 120,
+        "wires": [
+            [
+                "7403504acc085016"
+            ]
+        ]
+    },
+    {
+        "id": "070bf83181374334",
+        "type": "splitter",
+        "z": "2a50069484e4c0ad",
+        "name": "",
+        "property": "value",
+        "x": 370,
+        "y": 120,
+        "wires": [
+            [
+                "da2d3c7f913c25ec"
+            ]
+        ]
+    },
+    {
+        "id": "f5e6d17cff038774",
+        "type": "function",
+        "z": "2a50069484e4c0ad",
+        "name": "set array size",
+        "func": "var room = msg.payload[0].roomsize\nfunction range(start, end) {\n  return Array(end - start + 1).fill().map((_, idx) => start + idx)\n}\nvar result = range(0, room); // [9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\nconsole.log(result);\nmsg.value = result\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 120,
+        "wires": [
+            [
+                "070bf83181374334"
+            ]
+        ]
+    },
+    {
+        "id": "9c77f5843c05fb90",
+        "type": "function",
+        "z": "2a50069484e4c0ad",
+        "name": "sorting direct send",
+        "func": "msg.payload = [\n    {\n        mac : msg.mac,\n        peoplemac : msg.mac,\n        count : Number(msg.roomsize[0]),\n        roomsize : Number(msg.roomsize[1])\n        \n    }];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 80,
+        "wires": [
+            [
+                "2897614f322abebb",
+                "f5e6d17cff038774"
+            ]
+        ]
+    },
+    {
+        "id": "d2577a8315b47218",
+        "type": "function",
+        "z": "2a50069484e4c0ad",
+        "name": "Mac to Lowercase",
+        "func": "msg.mac = msg.mac2.toLowerCase()\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 80,
+        "wires": [
+            [
+                "9c77f5843c05fb90"
+            ]
+        ]
+    },
+    {
+        "id": "2897614f322abebb",
+        "type": "debug",
+        "z": "2a50069484e4c0ad",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1070,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "03cab88b94cbc96f",
+        "type": "function",
+        "z": "2a50069484e4c0ad",
+        "name": "Sort data",
+        "func": "var str1 = msg.topic;\n//var str2 = str1.slice(0, -2) + '00';\nvar str2 = str1.slice(0, -2);\nmsg.mac2 = str2;\nvar str = msg.payload;\nvar result = str.split(','); \nmsg.roomsize = result;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 80,
+        "wires": [
+            [
+                "d2577a8315b47218"
+            ]
+        ]
+    },
+    {
+        "id": "fef32c29d6271f67",
+        "type": "change",
+        "z": "2a50069484e4c0ad",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "topic",
+                "pt": "msg",
+                "from": "sensor/",
+                "fromt": "str",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "topic",
+                "pt": "msg",
+                "from": "/people/count",
+                "fromt": "str",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 80,
+        "wires": [
+            [
+                "03cab88b94cbc96f"
             ]
         ]
     },
@@ -72872,444 +73362,10 @@
         "y": 60,
         "wires": [
             [
-                "fef32c29d6271f67"
+                "b7af2c430e88da48"
             ]
         ],
         "info": "\nsensor/C4:DD:57:8E:8D:B0/people/count : msg.payload : string[3]\n\"0,0\"\n"
-    },
-    {
-        "id": "2897614f322abebb",
-        "type": "debug",
-        "z": "ea5cac99fd2f5844",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1010,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "9c77f5843c05fb90",
-        "type": "function",
-        "z": "ea5cac99fd2f5844",
-        "name": "sorting direct send",
-        "func": "msg.payload = [\n    {\n        mac : msg.mac,\n        peoplemac : msg.mac,\n        count : Number(msg.roomsize[0]),\n        roomsize : Number(msg.roomsize[1])\n        \n    }];\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 830,
-        "y": 60,
-        "wires": [
-            [
-                "2897614f322abebb",
-                "f5e6d17cff038774"
-            ]
-        ]
-    },
-    {
-        "id": "d2577a8315b47218",
-        "type": "function",
-        "z": "ea5cac99fd2f5844",
-        "name": "Mac to Lowercase",
-        "func": "msg.mac = msg.mac2.toLowerCase()\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 60,
-        "wires": [
-            [
-                "9c77f5843c05fb90"
-            ]
-        ]
-    },
-    {
-        "id": "03cab88b94cbc96f",
-        "type": "function",
-        "z": "ea5cac99fd2f5844",
-        "name": "Sort data",
-        "func": "var str1 = msg.topic;\n//var str2 = str1.slice(0, -2) + '00';\nvar str2 = str1.slice(0, -2);\nmsg.mac2 = str2;\nvar str = msg.payload;\nvar result = str.split(','); \nmsg.roomsize = result;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 460,
-        "y": 60,
-        "wires": [
-            [
-                "d2577a8315b47218"
-            ]
-        ]
-    },
-    {
-        "id": "fef32c29d6271f67",
-        "type": "change",
-        "z": "ea5cac99fd2f5844",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "topic",
-                "pt": "msg",
-                "from": "sensor/",
-                "fromt": "str",
-                "to": "",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "topic",
-                "pt": "msg",
-                "from": "/people/count",
-                "fromt": "str",
-                "to": "",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 300,
-        "y": 60,
-        "wires": [
-            [
-                "03cab88b94cbc96f"
-            ]
-        ]
-    },
-    {
-        "id": "f5e6d17cff038774",
-        "type": "function",
-        "z": "ea5cac99fd2f5844",
-        "name": "set array size",
-        "func": "var room = msg.payload[0].roomsize\nfunction range(start, end) {\n  return Array(end - start + 1).fill().map((_, idx) => start + idx)\n}\nvar result = range(0, room); // [9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\nconsole.log(result);\nmsg.value = result\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 150,
-        "y": 100,
-        "wires": [
-            [
-                "070bf83181374334"
-            ]
-        ]
-    },
-    {
-        "id": "070bf83181374334",
-        "type": "splitter",
-        "z": "ea5cac99fd2f5844",
-        "name": "",
-        "property": "value",
-        "x": 310,
-        "y": 100,
-        "wires": [
-            [
-                "da2d3c7f913c25ec"
-            ]
-        ]
-    },
-    {
-        "id": "1c8aeb6d290ba799",
-        "type": "change",
-        "z": "ea5cac99fd2f5844",
-        "name": "0 to 9 00 to 09",
-        "rules": [
-            {
-                "t": "change",
-                "p": "macend",
-                "pt": "msg",
-                "from": "0",
-                "fromt": "num",
-                "to": "00",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "macend",
-                "pt": "msg",
-                "from": "1",
-                "fromt": "num",
-                "to": "01",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "macend",
-                "pt": "msg",
-                "from": "2",
-                "fromt": "num",
-                "to": "02",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "macend",
-                "pt": "msg",
-                "from": "3",
-                "fromt": "num",
-                "to": "03",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "macend",
-                "pt": "msg",
-                "from": "4",
-                "fromt": "num",
-                "to": "04",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "macend",
-                "pt": "msg",
-                "from": "5",
-                "fromt": "num",
-                "to": "05",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "macend",
-                "pt": "msg",
-                "from": "6",
-                "fromt": "num",
-                "to": "06",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "macend",
-                "pt": "msg",
-                "from": "7",
-                "fromt": "num",
-                "to": "07",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "macend",
-                "pt": "msg",
-                "from": "8",
-                "fromt": "num",
-                "to": "08",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "macend",
-                "pt": "msg",
-                "from": "9",
-                "fromt": "num",
-                "to": "09",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 800,
-        "y": 100,
-        "wires": [
-            [
-                "c34e6a4ec213de44"
-            ]
-        ]
-    },
-    {
-        "id": "7403504acc085016",
-        "type": "change",
-        "z": "ea5cac99fd2f5844",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "macend",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 610,
-        "y": 100,
-        "wires": [
-            [
-                "1c8aeb6d290ba799"
-            ]
-        ]
-    },
-    {
-        "id": "c34e6a4ec213de44",
-        "type": "function",
-        "z": "ea5cac99fd2f5844",
-        "name": "sort for senzo 1",
-        "func": "msg.payload = [\n    {\n        mac : (msg.mac2 + msg.macend),\n        count : msg.roomsize[0],\n        roomsize : Number(msg.roomsize[1])\n       }];\n       msg.time = 12344;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 980,
-        "y": 100,
-        "wires": [
-            [
-                "256435428313309b"
-            ]
-        ]
-    },
-    {
-        "id": "b76e8af6498da302",
-        "type": "template",
-        "z": "ea5cac99fd2f5844",
-        "name": "MOVEMENT",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{\"dev_id\":\"{{mac}}\",\"data\":[{\"dist\":[9132,9135,9135,9137,9136,9138,9140,9139,9136,9135,9139,9136,9137,9137,9138,9135,9138,9090,9100,9110,9120,9130,9140,9150]},{\"temp\":\"intuitive\"},{\"hum\":0},{\"vin\":409}],\"time\":{{time}},\"transmit_time\":{{time}},\"version\":\"2.0\",\"prox_count\":5,\"sample_interval\":5000}",
-        "output": "json",
-        "x": 690,
-        "y": 200,
-        "wires": [
-            [
-                "a28f2a15887753e6"
-            ]
-        ]
-    },
-    {
-        "id": "0e696bcb9381a109",
-        "type": "template",
-        "z": "ea5cac99fd2f5844",
-        "name": "NO MOVEMENT",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{\"dev_id\":\"{{mac}}\",\"data\":[{\"dist\":[9132,9135,9135,9137,9136,9138,9140,9139,9136,9135,9139,9136,9137,9137,9138,9135,9138,9137,9135,9136,9138,9136,9136,9134]},{\"temp\":\"intuitive\"},{\"hum\":0},{\"vin\":409}],\"time\":{{time}},\"transmit_time\":{{time}},\"version\":\"2.0\",\"prox_count\":5,\"sample_interval\":5000}",
-        "output": "json",
-        "x": 700,
-        "y": 160,
-        "wires": [
-            [
-                "a28f2a15887753e6"
-            ]
-        ]
-    },
-    {
-        "id": "256435428313309b",
-        "type": "function",
-        "z": "ea5cac99fd2f5844",
-        "name": "senzo topic",
-        "func": "msg.topic = (\"sensor/\"+ msg.payload[0].mac +\"/data\")\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1150,
-        "y": 100,
-        "wires": [
-            [
-                "851347c81e7d01a2"
-            ]
-        ]
-    },
-    {
-        "id": "ebc9c15cd3d7515f",
-        "type": "change",
-        "z": "ea5cac99fd2f5844",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "time",
-                "pt": "msg",
-                "to": "",
-                "tot": "date"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 310,
-        "y": 160,
-        "wires": [
-            [
-                "8716b3588cf59cb7"
-            ]
-        ]
-    },
-    {
-        "id": "8716b3588cf59cb7",
-        "type": "switch",
-        "z": "ea5cac99fd2f5844",
-        "name": "",
-        "property": "macid",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gte",
-                "v": "payload_unsplit[0].count",
-                "vt": "msg"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 470,
-        "y": 160,
-        "wires": [
-            [
-                "0e696bcb9381a109"
-            ],
-            [
-                "b76e8af6498da302"
-            ]
-        ]
-    },
-    {
-        "id": "4fe0dcde018c6d32",
-        "type": "debug",
-        "z": "ea5cac99fd2f5844",
-        "name": "count free",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1360,
-        "y": 180,
-        "wires": []
     },
     {
         "id": "a28f2a15887753e6",
@@ -73324,45 +73380,23 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 880,
-        "y": 200,
+        "x": 1020,
+        "y": 180,
         "wires": []
     },
     {
-        "id": "da2d3c7f913c25ec",
-        "type": "function",
+        "id": "b7af2c430e88da48",
+        "type": "subflow:2a50069484e4c0ad",
         "z": "ea5cac99fd2f5844",
-        "name": "",
-        "func": "msg.macid = msg.payload\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 440,
-        "y": 100,
+        "name": "MEETING ROOM SPLITTER",
+        "x": 690,
+        "y": 140,
         "wires": [
             [
-                "7403504acc085016"
-            ]
-        ]
-    },
-    {
-        "id": "851347c81e7d01a2",
-        "type": "function",
-        "z": "ea5cac99fd2f5844",
-        "name": "",
-        "func": "msg.mac = msg.payload[0].mac\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 140,
-        "y": 160,
-        "wires": [
+                "a28f2a15887753e6"
+            ],
             [
-                "ebc9c15cd3d7515f"
+                "a28f2a15887753e6"
             ]
         ]
     }
