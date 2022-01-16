@@ -73018,11 +73018,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "vmac",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
+        "x": 890,
         "y": 200,
         "wires": []
     }
