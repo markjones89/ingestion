@@ -72995,14 +72995,14 @@
         "type": "function",
         "z": "ea5cac99fd2f5844",
         "name": "",
-        "func": "\nvar vmac = msg.payload[0].peoplemac;\nvar room = msg.payload[0].roomsize;\nconst points = new Array(room); \n\nreturn points;",
+        "func": "function range(start, end) {\n  return Array(end - start + 1).fill().map((_, idx) => start + idx)\n}\nvar result = range(9, 18); // [9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\nconsole.log(result);",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 200,
+        "x": 700,
+        "y": 120,
         "wires": [
             [
                 "18f0acac29fe87a5"
@@ -73023,7 +73023,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 890,
-        "y": 200,
+        "y": 120,
         "wires": []
     }
 ]
