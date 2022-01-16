@@ -72899,7 +72899,7 @@
         "type": "function",
         "z": "ea5cac99fd2f5844",
         "name": "sorting direct send",
-        "func": "msg.payload = [\n    {\n        mac : msg.mac,\n        peoplemac : msg.mac,\n        count : msg.roomsize[0],\n        roomsize : msg.roomsize[1]\n        \n    }];\nreturn msg;",
+        "func": "msg.payload = [\n    {\n        mac : msg.mac,\n        peoplemac : msg.mac,\n        count : msg.roomsize[0],\n        roomsize : Number(msg.roomsize[1])\n        \n    }];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
