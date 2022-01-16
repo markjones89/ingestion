@@ -72994,7 +72994,7 @@
         "type": "function",
         "z": "ea5cac99fd2f5844",
         "name": "",
-        "func": "\nvar roomsize;\n\nif (roomsize == 1) {\n    \n    }\n\nmsg.payload.forEach(item => {\n    \n    if (item.in_mac === \"f123\"){\n        person = \"tom\";\n        \n    } else if (item.in_mac === \"abc\"){\n        person = \"james\";\n    }\n   newmsg = {employee: person, Date:new Date().toLocaleDateString(), Time: new Date().toLocaleTimeString()};\n\n    node.send({payload: newmsg});\n});\nnode.done();\nreturn;",
+        "func": "vmac = msg.payload[0].peoplemac\nroom = msg.payload[0].roomsize\nvar roomsize;\n\nif (roomsize == 1) {\n    \n    }\n\nmsg.payload.forEach(item => {\n    \n    if (item.in_mac === \"f123\"){\n        person = \"tom\";\n        \n    } else if (item.in_mac === \"abc\"){\n        person = \"james\";\n    }\n   newmsg = {employee: person, Date:new Date().toLocaleDateString(), Time: new Date().toLocaleTimeString()};\n\n    node.send({payload: newmsg});\n});\nnode.done();\nreturn;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
