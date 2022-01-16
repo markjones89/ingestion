@@ -73018,12 +73018,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
-        "y": 100,
+        "x": 1030,
+        "y": 160,
         "wires": []
     },
     {
@@ -73146,7 +73146,7 @@
         "y": 100,
         "wires": [
             [
-                "18f0acac29fe87a5"
+                "c34e6a4ec213de44"
             ]
         ]
     },
@@ -73181,17 +73181,19 @@
         "id": "c34e6a4ec213de44",
         "type": "function",
         "z": "ea5cac99fd2f5844",
-        "name": "sorting direct send",
-        "func": "msg.payload = [\n    {\n        mac : msg.mac,\n        peoplemac : msg.mac,\n        count : msg.roomsize[0],\n        roomsize : Number(msg.roomsize[1])\n        \n    }];\nreturn msg;",
+        "name": "sort for senzo",
+        "func": "msg.payload = [\n    {\n        mac : (msg.mac2 + msg.macend),\n        count : msg.roomsize[0],\n        roomsize : Number(msg.roomsize[1])\n       }];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
+        "x": 820,
         "y": 180,
         "wires": [
-            []
+            [
+                "18f0acac29fe87a5"
+            ]
         ]
     },
     {
