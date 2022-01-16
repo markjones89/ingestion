@@ -73364,22 +73364,112 @@
         "type": "switch",
         "z": "ea5cac99fd2f5844",
         "name": "",
-        "property": "payload",
+        "property": "macend",
         "propertyType": "msg",
         "rules": [
             {
                 "t": "lte",
-                "v": "",
+                "v": "roomsize[0]",
+                "vt": "msg"
+            },
+            {
+                "t": "gte",
+                "v": "roomsize[0]",
                 "vt": "msg"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 1,
+        "outputs": 2,
         "x": 1220,
         "y": 200,
         "wires": [
+            [
+                "4fe0dcde018c6d32"
+            ],
+            [
+                "a28f2a15887753e6"
+            ]
+        ]
+    },
+    {
+        "id": "76b66bd91bc7eb36",
+        "type": "inject",
+        "z": "ea5cac99fd2f5844",
+        "name": "5",
+        "props": [
+            {
+                "p": "roomsize[0]",
+                "v": "5",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 1050,
+        "y": 160,
+        "wires": [
             []
         ]
+    },
+    {
+        "id": "7f601afa6e8ad27f",
+        "type": "inject",
+        "z": "ea5cac99fd2f5844",
+        "name": "3",
+        "props": [
+            {
+                "p": "roomsize[0]",
+                "v": "5",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 1050,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4fe0dcde018c6d32",
+        "type": "debug",
+        "z": "ea5cac99fd2f5844",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1350,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a28f2a15887753e6",
+        "type": "debug",
+        "z": "ea5cac99fd2f5844",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 240,
+        "wires": []
     }
 ]
