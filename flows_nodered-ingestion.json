@@ -45792,8 +45792,8 @@
         "type": "subflow:2a50069484e4c0ad",
         "z": "c7798c8d.f3cba",
         "name": "MEETING ROOM SPLITTER",
-        "x": 2960,
-        "y": 1120,
+        "x": 2840,
+        "y": 1100,
         "wires": [
             [],
             []
