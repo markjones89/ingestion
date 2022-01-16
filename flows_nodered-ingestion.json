@@ -72877,12 +72877,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
-        "y": 160,
+        "x": 1050,
+        "y": 60,
         "wires": []
     },
     {
@@ -72890,13 +72890,18 @@
         "type": "function",
         "z": "ea5cac99fd2f5844",
         "name": "sorting direct send",
-        "func": "msg.payload = [\n    {\n        mac : msg.mac,\n        peoplemac : msg.mac,\n        distinct : msg.payload,\n        \n    }];\nreturn msg;",
+        "func": "msg.payload = [\n    {\n        mac : msg.mac,\n        peoplemac : msg.mac,\n        distinct : msg.roomsize[0],\n        roomsize : msg.roomsize[1]\n        \n    }];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 490,
-        "y": 400,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 60,
         "wires": [
-            []
+            [
+                "2897614f322abebb"
+            ]
         ]
     },
     {
@@ -72914,7 +72919,7 @@
         "y": 60,
         "wires": [
             [
-                "2897614f322abebb"
+                "9c77f5843c05fb90"
             ]
         ]
     },
