@@ -73365,17 +73365,17 @@
         "type": "switch",
         "z": "ea5cac99fd2f5844",
         "name": "",
-        "property": "roomsize[1]",
+        "property": "roomsize[0]",
         "propertyType": "msg",
         "rules": [
             {
                 "t": "lte",
-                "v": "roomsize[0]",
+                "v": "roomsize[1]",
                 "vt": "msg"
             },
             {
                 "t": "gte",
-                "v": "roomsize[0]",
+                "v": "roomsize[1]",
                 "vt": "msg"
             }
         ],
