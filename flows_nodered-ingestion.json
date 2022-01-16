@@ -73101,7 +73101,7 @@
                 "from": "0",
                 "fromt": "num",
                 "to": "00",
-                "tot": "num"
+                "tot": "str"
             },
             {
                 "t": "change",
@@ -73110,7 +73110,7 @@
                 "from": "1",
                 "fromt": "num",
                 "to": "01",
-                "tot": "num"
+                "tot": "str"
             },
             {
                 "t": "change",
@@ -73119,7 +73119,7 @@
                 "from": "2",
                 "fromt": "num",
                 "to": "02",
-                "tot": "num"
+                "tot": "str"
             },
             {
                 "t": "change",
@@ -73128,7 +73128,7 @@
                 "from": "3",
                 "fromt": "num",
                 "to": "03",
-                "tot": "num"
+                "tot": "str"
             },
             {
                 "t": "change",
@@ -73137,7 +73137,7 @@
                 "from": "4",
                 "fromt": "num",
                 "to": "04",
-                "tot": "num"
+                "tot": "str"
             },
             {
                 "t": "change",
@@ -73146,7 +73146,7 @@
                 "from": "5",
                 "fromt": "num",
                 "to": "05",
-                "tot": "num"
+                "tot": "str"
             },
             {
                 "t": "change",
@@ -73155,7 +73155,7 @@
                 "from": "6",
                 "fromt": "num",
                 "to": "06",
-                "tot": "num"
+                "tot": "str"
             },
             {
                 "t": "change",
@@ -73164,7 +73164,7 @@
                 "from": "7",
                 "fromt": "num",
                 "to": "07",
-                "tot": "num"
+                "tot": "str"
             },
             {
                 "t": "change",
@@ -73173,7 +73173,7 @@
                 "from": "8",
                 "fromt": "num",
                 "to": "08",
-                "tot": "num"
+                "tot": "str"
             },
             {
                 "t": "change",
@@ -73182,7 +73182,7 @@
                 "from": "9",
                 "fromt": "num",
                 "to": "09",
-                "tot": "num"
+                "tot": "str"
             }
         ],
         "action": "",
